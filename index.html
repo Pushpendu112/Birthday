@@ -9,7 +9,6 @@
       background-color: black;
       color: #00ffff;
       font-family: 'Segoe UI', 'Courier New', monospace;
-      text-align: center;
       margin: 0;
       padding: 2rem;
       display: flex;
@@ -19,15 +18,16 @@
     }
 
     .svg-wrapper {
-      width: 100%;
+      width: 100vw;
       max-width: 600px;
-      margin: 0 auto;
+      padding: 0 1rem;
     }
 
     object {
       width: 100%;
       height: auto;
       display: block;
+      margin: 0 auto;
     }
 
     .typing-text {
@@ -38,6 +38,7 @@
       width: 0;
       animation: typing 4s steps(40, end) 1s forwards, blink 0.8s step-end infinite;
       margin-top: 2rem;
+      text-align: center;
     }
 
     @keyframes typing {
@@ -59,11 +60,11 @@
 </head>
 <body>
   <div class="svg-wrapper">
-    <!-- Responsive centered SVG -->
+    <!-- Embedded responsive SVG -->
     <object type="image/svg+xml" data="shibyte_emblem_looping_reveal.svg"></object>
   </div>
 
-  <!-- Typing-style animated text -->
+  <!-- Typing animated text -->
   <div class="typing-text">Coming soon to your nearest VC event</div>
 </body>
 </html>
