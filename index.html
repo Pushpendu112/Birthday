@@ -61,21 +61,24 @@
   </div>
 
   <div class="typing-text" id="typing">
-  <span id="static-text"></span><span class="dots">..<span class="blink-dot">.</span></span>
+  <span id="static-text"></span><span id="dots" style="display: none;">..<span class="blink-dot">.</span></span>
 </div>
 
   <script>
-  const text = "Coming soon to your nearest VC event";
+  const fullText = "Coming soon to your nearest VC event";
   const staticEl = document.getElementById("static-text");
+  const dotsEl = document.getElementById("dots");
 
   let i = 0;
   const speed = 80;
 
   function typeStaticText() {
-    if (i < text.length) {
-      staticEl.textContent += text.charAt(i);
+    if (i < fullText.length) {
+      staticEl.textContent += fullText.charAt(i);
       i++;
       setTimeout(typeStaticText, speed);
+    } else {
+      dotsEl.style.display = "inline";
     }
   }
 
