@@ -2,26 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shibyte Coming Soon</title>
   <style>
+    /* Background gradient pulse to match SVG animation */
     body {
-      background-color: #000000;
-      color: #00ffff;
-      font-family: 'Segoe UI', 'Courier New', monospace;
       margin: 0;
-      padding: 2rem;
+      padding: 0;
+      font-family: 'Segoe UI', 'Courier New', monospace;
+      background: radial-gradient(circle at center, #000000 50%, #0a0a0a 100%);
+      animation: pulseBg 6s ease-in-out infinite;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
+      min-height: 100vh;
+      color: #00ffff;
+    }
+
+    @keyframes pulseBg {
+      0%, 100% {
+        background: radial-gradient(circle at center, #000000 50%, #0a0a0a 100%);
+      }
+      50% {
+        background: radial-gradient(circle at center, #0b0c2f 40%, #000000 100%);
+      }
     }
 
     .svg-wrapper {
       width: 100vw;
       max-width: 600px;
       padding: 0 1rem;
+      box-shadow: 0 0 20px #00ffff22, 0 0 10px #ff00ff11;
     }
 
     object {
@@ -40,20 +53,23 @@
     @media (max-width: 600px) {
       .typing-text {
         font-size: 1.1rem;
+        padding: 0 1rem;
       }
     }
   </style>
 </head>
 <body>
+  <!-- SVG EMBED -->
   <div class="svg-wrapper">
-    <object type="image/svg+xml" data="shibyte_emblem_looping_reveal.svg"></object>
+    <object type="image/svg+xml" data="shibyte_emblem_fixed_with_black_background.svg"></object>
   </div>
 
+  <!-- Typing Animation -->
   <div class="typing-text" id="typing"></div>
 
   <script>
-    const text = "Coming soon to your nearest VC event...";
-    const speed = 80; // milliseconds per character
+    const text = "Coming soon to your nearest VC event";
+    const speed = 70;
     const typingEl = document.getElementById("typing");
 
     let i = 0;
@@ -63,12 +79,11 @@
         i++;
         setTimeout(typeWriter, speed);
       } else {
-        // Optional loop
         setTimeout(() => {
           typingEl.innerHTML = "";
           i = 0;
           typeWriter();
-        }, 3000); // wait before restarting
+        }, 3000);
       }
     }
 
