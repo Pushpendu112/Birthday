@@ -7,44 +7,63 @@
   <style>
     body {
       background-color: black;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
+      color: #00ffff;
+      font-family: 'Segoe UI', 'Courier New', monospace;
       text-align: center;
+      margin: 0;
       padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
-    .container {
-      max-width: 800px;
+    .svg-wrapper {
+      width: 100%;
+      max-width: 600px;
       margin: 0 auto;
     }
 
-    .coming-soon {
-      font-size: 1.5rem;
-      margin-top: 2rem;
-      opacity: 0;
-      animation: fadeLoop 10s ease-in-out infinite;
-    }
-
-    @keyframes fadeLoop {
-      0%, 10% { opacity: 0; }
-      20%, 80% { opacity: 1; }
-      100% { opacity: 0; }
-    }
-
-    svg {
+    object {
       width: 100%;
       height: auto;
-      max-width: 100%;
+      display: block;
+    }
+
+    .typing-text {
+      font-size: 1.4rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #00ffff;
+      width: 0;
+      animation: typing 4s steps(40, end) 1s forwards, blink 0.8s step-end infinite;
+      margin-top: 2rem;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: #00ffff; }
+    }
+
+    @media (max-width: 600px) {
+      .typing-text {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Embed your looping SVG here -->
+  <div class="svg-wrapper">
+    <!-- Responsive centered SVG -->
     <object type="image/svg+xml" data="shibyte_emblem_looping_reveal.svg"></object>
-
-    <!-- Looping text -->
-    <div class="coming-soon">Coming soon to your nearest VC event</div>
   </div>
+
+  <!-- Typing-style animated text -->
+  <div class="typing-text">Coming soon to your nearest VC event</div>
 </body>
 </html>
