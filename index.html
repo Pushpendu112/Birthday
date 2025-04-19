@@ -42,6 +42,17 @@
         font-size: 1.1rem;
       }
     }
+
+  .blink-dot {
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }
+
+
   </style>
 </head>
 <body>
@@ -50,33 +61,22 @@
   </div>
 
   <div class="typing-text" id="typing">
-  <span id="static-text"></span><span id="animated-dots"></span>
+  <span id="static-text"></span><span class="dots">..<span class="blink-dot">.</span></span>
 </div>
 
   <script>
-  const fullText = "Coming soon to your nearest VC event";
+  const text = "Coming soon to your nearest VC event";
   const staticEl = document.getElementById("static-text");
-  const dotsEl = document.getElementById("animated-dots");
 
   let i = 0;
   const speed = 80;
 
   function typeStaticText() {
-    if (i < fullText.length) {
-      staticEl.textContent += fullText.charAt(i);
+    if (i < text.length) {
+      staticEl.textContent += text.charAt(i);
       i++;
       setTimeout(typeStaticText, speed);
-    } else {
-      animateDots();
     }
-  }
-
-  function animateDots() {
-    let dotCount = 1;
-    setInterval(() => {
-      dotsEl.textContent = '.'.repeat(dotCount);
-      dotCount = dotCount === 3 ? 1 : dotCount + 1;
-    }, 500);
   }
 
   typeStaticText();
