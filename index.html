@@ -6,7 +6,7 @@
   <title>Shibyte Coming Soon</title>
   <style>
     body {
-      background-color: black;
+      background-color: #000000; /* Match SVG background */
       color: #00ffff;
       font-family: 'Segoe UI', 'Courier New', monospace;
       margin: 0;
@@ -30,15 +30,20 @@
       margin: 0 auto;
     }
 
+    .typing-container {
+      display: inline-block;
+      margin-top: 2rem;
+      max-width: 90vw;
+    }
+
     .typing-text {
-      font-size: 1rem;
-      white-space: nowrap;
+      font-size: 1.4rem;
       overflow: hidden;
       border-right: 2px solid #00ffff;
-      width: 0;
+      display: inline-block;
       animation: typing 4s steps(40, end) 1s forwards, blink 0.8s step-end infinite;
-      margin-top: 2rem;
-      text-align: center;
+      white-space: normal; /* Allow wrapping */
+      word-break: break-word;
     }
 
     @keyframes typing {
@@ -64,7 +69,9 @@
     <object type="image/svg+xml" data="shibyte_emblem_looping_reveal.svg"></object>
   </div>
 
-  <!-- Typing animated text -->
-  <div class="typing-text">Coming soon to your nearest VC event...</div>
+  <!-- Typing animated text with wrapping -->
+  <div class="typing-container">
+    <div class="typing-text">Coming soon to your nearest VC event</div>
+  </div>
 </body>
 </html>
