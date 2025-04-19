@@ -3,31 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trauma Titans</title>
+  <title>Shibyte Coming Soon</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background: #0f0f1a;
-      font-family: 'Arial', sans-serif;
+      background-color: black;
       color: white;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
+      padding: 2rem;
     }
-    .logo {
-      margin-top: 40px;
-      max-width: 300px;
-      width: 80%;
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
     }
-    h1 {
-      font-size: 2em;
-      color: #ff33cc;
-      margin-top: 20px;
+
+    .coming-soon {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      opacity: 0;
+      animation: fadeLoop 10s ease-in-out infinite;
+    }
+
+    @keyframes fadeLoop {
+      0%, 10% { opacity: 0; }
+      20%, 80% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
     }
   </style>
 </head>
 <body>
-  <img src="shibyte_emblem_animated_fixed.svg" alt="main logo" class="logo" />
-  <h1>Welcome to Trauma Titans</h1>
-  <p>Superpowers forged from emotional damage.</p>
+  <div class="container">
+    <!-- Embed your looping SVG here -->
+    <object type="image/svg+xml" data="shibyte_emblem_looping_reveal.svg"></object>
+
+    <!-- Looping text -->
+    <div class="coming-soon">Coming soon to your nearest VC event</div>
+  </div>
 </body>
 </html>
