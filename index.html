@@ -2,58 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shibyte Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shibyte Reveal</title>
   <style>
-    body {
-      background-color: #000000;
-      color: #00ffff;
-      font-family: 'Segoe UI', 'Courier New', monospace;
+    html, body {
       margin: 0;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .svg-wrapper {
-      width: 100vw;
-      max-width: 600px;
-      padding: 0 1rem;
-    }
-
-    object {
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
       width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
+      font-family: 'Segoe UI', 'Courier New', monospace;
     }
 
-    .typing-text {
-      font-size: 1.4rem;
-      margin-top: 2rem;
-      min-height: 2em;
+    /* Fullscreen SVG */
+    .svg-background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+    }
+
+    /* Typing overlay */
+    .typing-overlay {
+      position: fixed;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #00ffff;
+      font-size: 1.6rem;
+      text-align: center;
+      white-space: nowrap;
+      z-index: 1;
     }
 
     @media (max-width: 600px) {
-      .typing-text {
-        font-size: 1.1rem;
+      .typing-overlay {
+        font-size: 1.2rem;
+        white-space: normal;
+        padding: 0 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="svg-wrapper">
-    <object type="image/svg+xml" data="shibyte_emblem_looping_reveal.svg"></object>
-  </div>
 
-  <div class="typing-text" id="typing"></div>
+  <!-- Full-screen SVG -->
+  <object class="svg-background" type="image/svg+xml" data="shibyte_emblem_fixed_with_black_background.svg"></object>
+
+  <!-- Typing Text Overlay -->
+  <div class="typing-overlay" id="typing"></div>
 
   <script>
     const text = "Coming soon to your nearest VC event";
-    const speed = 80; // milliseconds per character
+    const speed = 70;
     const typingEl = document.getElementById("typing");
 
     let i = 0;
@@ -63,12 +65,11 @@
         i++;
         setTimeout(typeWriter, speed);
       } else {
-        // Optional loop
         setTimeout(() => {
           typingEl.innerHTML = "";
           i = 0;
           typeWriter();
-        }, 3000); // wait before restarting
+        }, 3000);
       }
     }
 
