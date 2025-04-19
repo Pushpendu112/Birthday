@@ -51,7 +51,21 @@
     0%, 50%, 100% { opacity: 1; }
     25%, 75% { opacity: 0; }
   }
+object {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards;
+    animation-delay: 1s; /* Optional: delay to sync with typing */
+  }
 
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
 
   </style>
 </head>
