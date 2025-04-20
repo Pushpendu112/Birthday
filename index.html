@@ -61,6 +61,27 @@
       0%, 50%, 100% { opacity: 1; }
       25%, 75% { opacity: 0; }
     }
+    
+    body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', 'Courier New', monospace;
+  color: #00ffff;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #000000 0%, #0f0f1a 40%, #000000 100%);
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    background: radial-gradient(circle at center, #000000 0%, #0f0f1a 40%, #000000 100%);
+  }
+  50% {
+    background: radial-gradient(circle at center, #000000 0%, #1a1a2d 45%, #000000 100%);
+  }
+}
   </style>
 </head>
 <body>
