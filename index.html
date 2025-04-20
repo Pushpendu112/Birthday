@@ -5,84 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shibyte Coming Soon</title>
   <style>
-    body {
-      background-color: #000000;
-      color: #00ffff;
-      font-family: 'Segoe UI', 'Courier New', monospace;
+    html, body {
       margin: 0;
-      padding: 2rem;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background-color: #000000;
+      font-family: 'Segoe UI', 'Courier New', monospace;
+      color: #00ffff;
+      overflow: hidden;
+    }
+
+    .page-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      height: 100%;
+      width: 100%;
       text-align: center;
+      padding: 1rem;
+      box-sizing: border-box;
     }
 
     .svg-wrapper {
-      width: 100vw;
+      width: 90vw;
       max-width: 600px;
-      padding: 0 1rem;
     }
 
     object {
       width: 100%;
       height: auto;
       display: block;
-      margin: 0 auto;
     }
 
     .typing-text {
       font-size: 1.4rem;
       margin-top: 2rem;
       min-height: 2em;
+      word-wrap: break-word;
     }
 
     @media (max-width: 600px) {
       .typing-text {
         font-size: 1.1rem;
+        padding: 0 1rem;
       }
     }
 
-  .blink-dot {
-    animation: blink 1s infinite;
-  }
+    .blink-dot {
+      animation: blink 1s infinite;
+    }
 
-  @keyframes blink {
-    0%, 50%, 100% { opacity: 1; }
-    25%, 75% { opacity: 0; }
-  }
-
-
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
   </style>
 </head>
 <body>
-  <div class="svg-wrapper">
-    <object type="image/svg+xml" data="shibyte_emblem_looping_reveal.svg"></object>
+  <div class="page-container">
+    <div class="svg-wrapper">
+      <object type="image/svg+xml" data="shibyte_emblem_looping_reveal.svg"></object>
+    </div>
+
+    <div class="typing-text" id="typing">
+      <span id="static-text"></span><span id="dots" style="display: none;">..<span class="blink-dot">.</span></span>
+    </div>
   </div>
 
-  <div class="typing-text" id="typing">
-  <span id="static-text"></span><span id="dots" style="display: none;">..<span class="blink-dot">.</span></span>
-</div>
-
   <script>
-  const fullText = "Coming soon to your nearest VC event";
-  const staticEl = document.getElementById("static-text");
-  const dotsEl = document.getElementById("dots");
+    const fullText = "Coming soon to your nearest VC event";
+    const staticEl = document.getElementById("static-text");
+    const dotsEl = document.getElementById("dots");
 
-  let i = 0;
-  const speed = 80;
+    let i = 0;
+    const speed = 80;
 
-  function typeStaticText() {
-    if (i < fullText.length) {
-      staticEl.textContent += fullText.charAt(i);
-      i++;
-      setTimeout(typeStaticText, speed);
-    } else {
-      dotsEl.style.display = "inline";
+    function typeStaticText() {
+      if (i < fullText.length) {
+        staticEl.textContent += fullText.charAt(i);
+        i++;
+        setTimeout(typeStaticText, speed);
+      } else {
+        dotsEl.style.display = "inline";
+      }
     }
-  }
 
-  typeStaticText();
-</script>
+    typeStaticText();
+  </script>
 </body>
 </html>
