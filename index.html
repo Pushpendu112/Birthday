@@ -70,8 +70,17 @@
   font-family: 'Segoe UI', 'Courier New', monospace;
   color: #00ffff;
   overflow: hidden;
-  background: radial-gradient(circle at center, #000000 0%, #0f0f1a 40%, #000000 100%);
-  animation: pulseGlow 6s ease-in-out infinite;
+  background: radial-gradient(circle at center, #000000 0%, #000000 100%);
+  animation: revealGlow 2.5s ease-out forwards, pulseGlow 6s ease-in-out infinite 2.5s;
+}
+
+@keyframes revealGlow {
+  0% {
+    background: radial-gradient(circle at center, #000000 0%, #000000 100%);
+  }
+  100% {
+    background: radial-gradient(circle at center, #000000 0%, #0f0f1a 40%, #000000 100%);
+  }
 }
 
 @keyframes pulseGlow {
